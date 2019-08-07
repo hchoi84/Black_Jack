@@ -4,16 +4,18 @@ using System.Collections.Generic;
 class Player
 {
   private string name;
-  private int coins;
-  private int bet;
+  public int coins;
+  public int bet;
   private List<Card> hand = new List<Card>();
   private int handScore;
 
   public int getHandScore{ get{return handScore;} }
   public int getCardCount{ get{return hand.Count;} }
+  public List<Card> getCards{ get{return hand;} }
 
   public Player(string name){
     this.name = name;
+    coins = 100;
   }
 
   public Card Draw(Deck deck){
@@ -31,7 +33,11 @@ class Player
     hand.RemoveAt(index);
     return discardedCard;
   }
-
+  public void DiscardAll()
+  {
+    hand.Clear();
+    handScore = 0;
+  }
   public void ShowCards()
   {
     foreach (Card c in hand)
@@ -53,6 +59,21 @@ class Player
         cardVal = "10";
       }
       ShowCardA(cardVal, SecondCard.getSuit);
+  }
+
+  public void PlaceBet(int posNum)
+  {
+    bet = posNum;
+    coins -= bet;
+  }
+
+  public void BetResult(bool isVictorious)
+  {
+    if(isVictorious)
+    {
+      coins += bet * 2;
+    }
+    bet = 0;
   }
 
   public void ShowCardA(string val, string suit) {
@@ -119,7 +140,8 @@ class Player
     System.Console.WriteLine("                                                                                  \\|__|\\|__|\\|__|");
 
   }
-  public void PrintLose() {
+  public void PrintLose() 
+  {
     System.Console.WriteLine("  ___    ___ ________  ___  ___          ___       ________  ________  _________  ___       ");
     System.Console.WriteLine(" |\\  \\  /  /|\\   __  \\|\\  \\|\\  \\        |\\  \\     |\\   __  \\|\\   ____\\|\\___   ___\\\\  \\      ");
     System.Console.WriteLine(" \\ \\  \\/  / | \\  \\|\\  \\ \\  \\\\\\  \\       \\ \\  \\    \\ \\  \\|\\  \\ \\  \\___|\\|___ \\  \\_\\ \\  \\     ");
@@ -130,6 +152,20 @@ class Player
     System.Console.WriteLine("\\|___|/                                                        \\|_________|            |\\__\\");
     System.Console.WriteLine("                                                                                       \\|__|");
   }
+  
+  public void PrintPush()
+  {
+    System.Console.WriteLine(" ___  _________  ________           ________          ________  ___  ___  ________  ___  ___  ___       ");
+    System.Console.WriteLine("|\\  \\|\\___   ___\\   ____\\         |\\   __  \\        |\\   __  \\|\\  \\|\\  \\|\\   ____\\|\\  \\|\\  \\|\\  \\      ");
+    System.Console.WriteLine("\\ \\  \\|___ \\  \\_\\ \\  \\___|_        \\ \\  \\|\\  \\       \\ \\  \\|\\  \\ \\  \\\\  \\ \\  \\___|\\ \\  \\\\  \\ \\  \\     ");
+    System.Console.WriteLine(" \\ \\  \\   \\ \\  \\ \\ \\_____  \\        \\ \\   __  \\       \\ \\   ____\\ \\  \\\\  \\ \\_____  \\ \\   __  \\ \\  \\    ");
+    System.Console.WriteLine("  \\ \\  \\   \\ \\  \\ \\|____|\\  \\        \\ \\  \\ \\  \\       \\ \\  \\___|\\ \\  \\\\  \\|____|\\  \\ \\  \\ \\  \\ \\__\\   ");
+    System.Console.WriteLine("   \\ \\__\\   \\ \\__\\  ____\\_\\  \\        \\ \\__\\ \\__\\       \\ \\__\\    \\ \\_______\\____\\_\\  \\ \\__\\ \\__\\|__|   ");
+    System.Console.WriteLine("    \\|__|    \\|__| |\\_________\\        \\|__|\\|__|        \\|__|     \\|_______|\\_________\\|__|\\|__|   ___ ");
+    System.Console.WriteLine("                   \\|_________|                                             \\|_________|           |\\__\\");
+    System.Console.WriteLine("                                                                                                   \\|__|");
+  }
+
 }
 
                                                                                             

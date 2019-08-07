@@ -13,7 +13,7 @@ class Deck
   public List<Card> Reset(){
     string[] suit = {"Clubs", "Spades", "Hearts", "Diamonds"};
     string[] stringVal = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-    int[] val = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
+    int[] val = {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
 
     foreach (string s in suit){
       for (int i = 0; i < stringVal.Length; i++){
