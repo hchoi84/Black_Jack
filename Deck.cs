@@ -11,11 +11,11 @@ class Deck
   }
 
   public List<Card> Reset(){
-    string[] suite = {"Clubs", "Spades", "hearts", "Diamonds"};
-    string[] stringVal = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "Jack", "Queen", "King"};
+    string[] suit = {"Clubs", "Spades", "hearts", "Diamonds"};
+    string[] stringVal = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
     int[] val = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 
-    foreach (string s in suite){
+    foreach (string s in suit){
       for (int i = 0; i < stringVal.Length; i++){
         Card card = new Card(stringVal[i], s, val[i]);
         cards.Add(card);

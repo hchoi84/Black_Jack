@@ -24,7 +24,8 @@ namespace _03_DECK_OF_CARDS
 			}
 			Console.WriteLine($"Dealer is done drawing. Dealer has {dealer.getCardCount} cards");
 			Console.WriteLine("Dealers visible card:");
-			Console.WriteLine(dealer.ShowSecondCard());
+			// Console.WriteLine(dealer.ShowSecondCard());
+			dealer.ShowSecondCard();
 			Console.WriteLine("");
 			
 			player.Draw(deck);
@@ -39,7 +40,7 @@ namespace _03_DECK_OF_CARDS
 			{
 				if (input == "y"){
 					Card dealtCard = player.Draw(deck);
-					Console.WriteLine($"{dealtCard.getStringVal} of {dealtCard.getSuite}");
+					Console.WriteLine($"{dealtCard.getStringVal} of {dealtCard.getSuit}");
 					if(player.getHandScore > 21)
 					{
 						Console.WriteLine("You lose sucker!");

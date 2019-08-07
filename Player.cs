@@ -33,11 +33,75 @@ class Player
   public void ShowCards()
   {
     foreach (Card c in hand)
-      Console.WriteLine($"{c.getStringVal} of {c.getSuite}");
+    {
+      string cardVal = "" + c.getStringVal[0];
+      if (cardVal == "1")
+      {
+        cardVal = "10";
+      }
+      ShowCardA(cardVal, c.getSuit);
+    }
+  }
+  public void ShowSecondCard()
+  {
+      Card SecondCard = hand[0];
+      string cardVal = "" + SecondCard.getStringVal[0];
+      if (cardVal == "1")
+      {
+        cardVal = "10";
+      }
+      ShowCardA(cardVal, SecondCard.getSuit);
   }
 
-  public string ShowSecondCard()
-  {
-    return $"{hand[1].getStringVal} of {hand[1].getSuite}";
+  public void ShowCardA(string val, string suit) {
+      string val2 = " " + val;
+      if (val.Length == 1)
+      {
+          val2 = "  " + val;
+          val = val + " ";
+      }
+      if (suit == "Spades")
+      {
+          System.Console.WriteLine( " _______");
+          System.Console.WriteLine($"|{val}     |");
+          System.Console.WriteLine($"|   .   |");
+          System.Console.WriteLine( "|  /.\\  |");
+          System.Console.WriteLine( "| (_._) |");
+          System.Console.WriteLine( "|   |   |");
+          System.Console.WriteLine($"|    {val2}|");
+          System.Console.WriteLine($"|_______|");
+      }
+      if (suit == "Diamonds")
+      {
+          System.Console.WriteLine( " _______");
+          System.Console.WriteLine( $"|{val}     |");
+          System.Console.WriteLine($"|   ^   |");
+          System.Console.WriteLine( "|  / \\  |");
+          System.Console.WriteLine( "|  \\ /  |");
+          System.Console.WriteLine( $"|   .{val2}|");
+          System.Console.WriteLine("|_______|");
+      }
+      if (suit == "Clubs")
+      {
+          System.Console.WriteLine( " _______");
+          System.Console.WriteLine($"|{val}     |");
+          System.Console.WriteLine("|   _   |");
+          System.Console.WriteLine( "|  ( )  |");
+          System.Console.WriteLine( "| (_'_) |");
+          System.Console.WriteLine( "|   |   |");
+          System.Console.WriteLine($"|    {val2}|");
+          System.Console.WriteLine($"|_______|");
+      }
+      if (suit == "Hearts")
+      {
+          System.Console.WriteLine(" _______");
+          System.Console.WriteLine($"|{val}     |");
+          System.Console.WriteLine("|  _ _  |");
+          System.Console.WriteLine( "| ( v ) |");
+          System.Console.WriteLine( "|  \\ /  |");
+          System.Console.WriteLine( "|   .   |");
+          System.Console.WriteLine($"|    {val2}|");
+          System.Console.WriteLine("|_______|");
+      }
   }
 }
