@@ -46,7 +46,7 @@ class Player
   }
   public void ShowSecondCard()
   {
-      Card SecondCard = hand[0];
+      Card SecondCard = hand[1];
       string cardVal = "" + SecondCard.getStringVal[0];
       if (cardVal == "1")
       {

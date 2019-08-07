@@ -7,6 +7,7 @@ namespace _03_DECK_OF_CARDS
 	{
 		static void Main(string[] args)
 		{
+			System.Console.WriteLine("Start of Game");
 			Boolean isGameOver = false;
 			Deck deck = new Deck();
 			Player dealer = new Player("dealer");
@@ -36,7 +37,7 @@ namespace _03_DECK_OF_CARDS
 			Console.WriteLine("Hit?");
 			string input = Console.ReadLine();
 			
-			while(!isGameOver && input != "q")
+			while(isGameOver)
 			{
 				if (input == "y"){
 					Card dealtCard = player.Draw(deck);
@@ -65,14 +66,6 @@ namespace _03_DECK_OF_CARDS
 					Console.WriteLine("");
 					Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$");
 					// Console.WriteLine(dealer.getHandScore > player.getHandScore ? "Dealer WON!" : "Player WON!");
-					if (dealer.getHandScore > player.getHandScore )
-					{
-						System.Console.WriteLine("Dealer WON!");
-					}
-					else
-					{
-						player.PrintWin();
-					}
 					Console.WriteLine("");
 
 					Console.WriteLine("~~~~~~Dealers cards are:~~~~~~");
@@ -83,6 +76,14 @@ namespace _03_DECK_OF_CARDS
 					Console.WriteLine("~~~~~~Your cards are:~~~~~~");
 					player.ShowCards();
 					Console.WriteLine(player.getHandScore);
+					if (dealer.getHandScore > player.getHandScore )
+					{
+						player.PrintLose();
+					}
+					else
+					{
+						player.PrintWin();
+					}
 					break;
 				}
 			}
