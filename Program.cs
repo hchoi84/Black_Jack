@@ -46,7 +46,7 @@ namespace _03_DECK_OF_CARDS
 					{
 						cardVal = "10";
 					}
-					ShowCardA(cardVal, dealtCard.getSuit);
+					player.ShowCardA(cardVal, dealtCard.getSuit);
 
 					if(player.getHandScore > 21)
 					{
