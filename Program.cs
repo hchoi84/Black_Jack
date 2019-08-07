@@ -40,7 +40,14 @@ namespace _03_DECK_OF_CARDS
 			{
 				if (input == "y"){
 					Card dealtCard = player.Draw(deck);
-					Console.WriteLine($"{dealtCard.getStringVal} of {dealtCard.getSuit}");
+					// Console.WriteLine($"{dealtCard.getStringVal} of {dealtCard.getSuit}");
+					string cardVal = "" + dealtCard.getStringVal[0];
+					if (cardVal == "1")
+					{
+						cardVal = "10";
+					}
+					ShowCardA(cardVal, dealtCard.getSuit);
+
 					if(player.getHandScore > 21)
 					{
 						Console.WriteLine("You lose sucker!");
