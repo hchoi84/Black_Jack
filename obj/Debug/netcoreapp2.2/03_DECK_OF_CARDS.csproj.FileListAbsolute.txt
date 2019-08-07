@@ -20,3 +20,14 @@ C:/Users/XPS/Desktop/CD/CSharp/OOP/03_DECK_OF_CARDS/obj/Debug/netcoreapp2.2/03_D
 /Users/mjm/Documents/dev/csharp/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.AssemblyInfo.cs
 /Users/mjm/Documents/dev/csharp/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.dll
 /Users/mjm/Documents/dev/csharp/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.pdb
+/Users/johnweisz/Desktop/C#/Black_Jack/bin/Debug/netcoreapp2.2/03_DECK_OF_CARDS.deps.json
+/Users/johnweisz/Desktop/C#/Black_Jack/bin/Debug/netcoreapp2.2/03_DECK_OF_CARDS.runtimeconfig.json
+/Users/johnweisz/Desktop/C#/Black_Jack/bin/Debug/netcoreapp2.2/03_DECK_OF_CARDS.runtimeconfig.dev.json
+/Users/johnweisz/Desktop/C#/Black_Jack/bin/Debug/netcoreapp2.2/03_DECK_OF_CARDS.dll
+/Users/johnweisz/Desktop/C#/Black_Jack/bin/Debug/netcoreapp2.2/03_DECK_OF_CARDS.pdb
+/Users/johnweisz/Desktop/C#/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.csprojAssemblyReference.cache
+/Users/johnweisz/Desktop/C#/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.csproj.CoreCompileInputs.cache
+/Users/johnweisz/Desktop/C#/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.AssemblyInfoInputs.cache
+/Users/johnweisz/Desktop/C#/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.AssemblyInfo.cs
+/Users/johnweisz/Desktop/C#/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.dll
+/Users/johnweisz/Desktop/C#/Black_Jack/obj/Debug/netcoreapp2.2/03_DECK_OF_CARDS.pdb

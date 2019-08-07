@@ -4,6 +4,8 @@ using System.Collections.Generic;
 class Player
 {
   private string name;
+  private int coins;
+  private int bet;
   private List<Card> hand = new List<Card>();
   private int handScore;
 
