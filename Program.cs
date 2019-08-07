@@ -63,7 +63,15 @@ namespace _03_DECK_OF_CARDS
 				{
 					Console.WriteLine("");
 					Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$");
-					Console.WriteLine(dealer.getHandScore > player.getHandScore ? "Dealer WON!" : "Player WON!");
+					// Console.WriteLine(dealer.getHandScore > player.getHandScore ? "Dealer WON!" : "Player WON!");
+					if (dealer.getHandScore > player.getHandScore )
+					{
+						System.Console.WriteLine("Dealer WON!");
+					}
+					else
+					{
+						player.PrintWin();
+					}
 					Console.WriteLine("");
 
 					Console.WriteLine("~~~~~~Dealers cards are:~~~~~~");
@@ -74,6 +82,7 @@ namespace _03_DECK_OF_CARDS
 					Console.WriteLine("~~~~~~Your cards are:~~~~~~");
 					player.ShowCards();
 					Console.WriteLine(player.getHandScore);
+					player.PrintWin();
 					break;
 				}
 			}
