@@ -90,7 +90,6 @@ namespace _03_DECK_OF_CARDS
 									if(card.changeVal == 11)
 									{
 										card.changeVal = 1;
-										dealer.updateHandScore();
 										break;
 									}
 								}
@@ -106,7 +105,6 @@ namespace _03_DECK_OF_CARDS
 							if(card.changeVal == 11)
 							{
 								card.changeVal = 1;
-								player.updateHandScore();
 								break;
 							}
 						}

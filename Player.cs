@@ -9,7 +9,17 @@ class Player
   private List<Card> hand = new List<Card>();
   private int handScore;
 
-  public int getHandScore{ get{return handScore;} }
+  public int getHandScore{
+    get
+    {
+      handScore = 0;
+      foreach (var card in hand)
+      {
+        handScore += card.getVal;
+      }
+      return handScore;
+    } 
+  }
   public int getCardCount{ get{return hand.Count;} }
   public List<Card> getCards{ get{return hand;} }
 
@@ -24,16 +34,6 @@ class Player
     handScore += dealtCard.getVal;
     return dealtCard;
   }
-
-  public void updateHandScore()
-  {
-    handScore = 0;
-    foreach (var card in hand)
-    {
-      handScore += card.getVal;
-    }
-  }
-
   public Card Discard(int index){
     if (hand[index] == null){
       return null;
