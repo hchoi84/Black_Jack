@@ -25,6 +25,15 @@ class Player
     return dealtCard;
   }
 
+  public void updateHandScore()
+  {
+    handScore = 0;
+    foreach (var card in hand)
+    {
+      handScore += card.getVal;
+    }
+  }
+
   public Card Discard(int index){
     if (hand[index] == null){
       return null;

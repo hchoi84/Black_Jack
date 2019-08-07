@@ -18,7 +18,7 @@ namespace _03_DECK_OF_CARDS
 
 			while(again == "y" && !isGameOver)
 			{
-				System.Console.WriteLine("New Round has started.");
+				System.Console.WriteLine("New Round has started...");
 
 				var isRoundOver = false;
 				Boolean isWinner;
@@ -90,6 +90,7 @@ namespace _03_DECK_OF_CARDS
 									if(card.changeVal == 11)
 									{
 										card.changeVal = 1;
+										dealer.updateHandScore();
 										break;
 									}
 								}
@@ -105,6 +106,7 @@ namespace _03_DECK_OF_CARDS
 							if(card.changeVal == 11)
 							{
 								card.changeVal = 1;
+								player.updateHandScore();
 								break;
 							}
 						}
@@ -120,11 +122,11 @@ namespace _03_DECK_OF_CARDS
 				Console.WriteLine("");
 				Console.WriteLine("~~~~~~Dealers cards are:~~~~~~");
 				dealer.ShowCards();
-				Console.WriteLine($"Dealer total is {dealer.getHandScore}");
+				Console.WriteLine($"Dealer total is {dealer.getHandScore}.");
 				Console.WriteLine("");
 				Console.WriteLine("~~~~~~Your cards are:~~~~~~");
 				player.ShowCards();
-				Console.WriteLine($"Player total is {player.getHandScore}");
+				Console.WriteLine($"Player total is {player.getHandScore}.");
 				
 				// Check win condition.
 				if (dealer.getHandScore > 21)
@@ -165,7 +167,7 @@ namespace _03_DECK_OF_CARDS
 				// Display winnings.
 				Console.WriteLine($"Player has {player.coins} coins.");
 
-				//Check if player can play again.
+				// Check if player can play again.
 				if(player.coins <= 0)
 				{
 					isGameOver = true;
