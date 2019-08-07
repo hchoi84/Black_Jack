@@ -51,6 +51,7 @@ namespace _03_DECK_OF_CARDS
 					if(player.getHandScore > 21)
 					{
 						Console.WriteLine("You lose sucker!");
+						player.PrintLose();
 						break;
 					}
 					else
@@ -82,7 +83,6 @@ namespace _03_DECK_OF_CARDS
 					Console.WriteLine("~~~~~~Your cards are:~~~~~~");
 					player.ShowCards();
 					Console.WriteLine(player.getHandScore);
-					player.PrintWin();
 					break;
 				}
 			}
