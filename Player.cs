@@ -49,25 +49,15 @@ class Player
   }
   public void ShowCards()
   {
-    foreach (Card c in hand)
+    foreach (var card in hand)
     {
-      string cardVal = "" + c.getStringVal[0];
-      if (cardVal == "1")
-      {
-        cardVal = "10";
-      }
-      ShowCardA(cardVal, c.getSuit);
+      ShowCardA(card.getStringVal, card.getSuit);
     }
   }
   public void ShowSecondCard()
   {
       Card SecondCard = hand[1];
-      string cardVal = "" + SecondCard.getStringVal[0];
-      if (cardVal == "1")
-      {
-        cardVal = "10";
-      }
-      ShowCardA(cardVal, SecondCard.getSuit);
+      ShowCardA(SecondCard.getStringVal, SecondCard.getSuit);
   }
 
   public void PlaceBet(int posNum)
@@ -85,13 +75,26 @@ class Player
     bet = 0;
   }
 
-  public void ShowCardA(string val, string suit) {
-      string val2 = " " + val;
-      if (val.Length == 1)
+  public void CheckAce()
+  {
+    var hasAce = true;
+    while(getHandScore > 21 && hasAce)
+    {
+      hasAce = false;
+      foreach (var card in getCards)
       {
-          val2 = "  " + val;
-          val = val + " ";
+        if(card.getVal == 11)
+        {
+          card.changeVal = 1;
+          hasAce = true;
+          break;
+        }
       }
+    }
+  }
+
+  public void ShowCardA(string val, string suit) {
+      string val2 = val + " ";
       if (suit == "Spades")
       {
           System.Console.WriteLine( " _______");
@@ -110,7 +113,8 @@ class Player
           System.Console.WriteLine($"|   ^   |");
           System.Console.WriteLine( "|  / \\  |");
           System.Console.WriteLine( "|  \\ /  |");
-          System.Console.WriteLine( $"|   .{val2}|");
+          System.Console.WriteLine( "|   .   |");
+          System.Console.WriteLine( $"|    {val2}|");
           System.Console.WriteLine("|_______|");
       }
       if (suit == "Clubs")

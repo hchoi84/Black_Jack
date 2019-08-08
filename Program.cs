@@ -58,7 +58,8 @@ namespace _03_DECK_OF_CARDS
 					}
 				}
 
-				while(!isRoundOver)
+				// Player draws.
+				while(!isRoundOver && player.getHandScore <= 21)
 				{
 					// Ask if player hits or stays.
 					Console.WriteLine("Hit? y/n");
@@ -66,54 +67,24 @@ namespace _03_DECK_OF_CARDS
 					// If player hits, draw and show new card.
 					if (input == "y"){
 						Card dealtCard = player.Draw(deck);
-						string cardVal = "" + dealtCard.getStringVal[0];
-						if (cardVal == "1")
-						{
-							cardVal = "10";
-						}
-						player.ShowCardA(cardVal, dealtCard.getSuit);
+						player.ShowCardA(dealtCard.getStringVal, dealtCard.getSuit);
 					}
 					// If player stays, round ends and dealer may draw.
-					else if(input == "n")
+					else
 					{
 						isRoundOver = true;
-						// Dealer draws card if necessary.
-						while (dealer.getHandScore < 15)
-						{
-							Console.WriteLine($"Dealer draws card #{dealer.getCardCount}.");
-							dealer.Draw(deck);
-							if(dealer.getHandScore > 21)
-							{
-								// Change Ace value to 1.
-								foreach (var card in dealer.getCards)
-								{
-									if(card.changeVal == 11)
-									{
-										card.changeVal = 1;
-										break;
-									}
-								}
-							}
-						}
 					}
-					// Prevent player from drawing if bust.
-					if(player.getHandScore > 21)
-					{
-						// Change Ace value to 1.
-						foreach (var card in player.getCards)
-						{
-							if(card.changeVal == 11)
-							{
-								card.changeVal = 1;
-								break;
-							}
-						}
-						// If still over 21...
-						if(player.getHandScore > 21)
-						{
-							isRoundOver = true;
-						}
-					}
+					// Change Ace value to 1 if necessary.
+					player.CheckAce();
+
+				}
+
+				// Dealer draws.
+				while (dealer.getHandScore < 15)
+				{
+					Console.WriteLine($"Dealer draws card #{dealer.getCardCount}.");
+					dealer.Draw(deck);
+					dealer.CheckAce();
 				}
 
 				//Round is over, display all cards.
@@ -127,20 +98,15 @@ namespace _03_DECK_OF_CARDS
 				Console.WriteLine($"Player total is {player.getHandScore}.");
 				
 				// Check win condition.
-				if (dealer.getHandScore > 21)
+				if (player.getHandScore > 21)
+				{
+					isWinner = false;
+					player.PrintLose();
+				}
+				else if (dealer.getHandScore > 21)
 				{
 					isWinner = true;
 					player.PrintWin();
-				}
-				else if (player.getHandScore > 21)
-				{
-					isWinner = false;
-					player.PrintLose();
-				}
-				else if (dealer.getHandScore > player.getHandScore)
-				{
-					isWinner = false;
-					player.PrintLose();
 				}
 				else if (dealer.getHandScore == player.getHandScore)
 				{
@@ -148,18 +114,24 @@ namespace _03_DECK_OF_CARDS
 					player.coins += bet;
 					player.PrintPush();
 				}
+				else if (dealer.getHandScore > player.getHandScore)
+				{
+					isWinner = false;
+					player.PrintLose();
+				}
 				else
 				{
 					isWinner = true;
 					player.PrintWin();
 				}
+
 				// Clear cards and reset deck.
 				player.DiscardAll();
 				dealer.DiscardAll();
 				deck.Reset();
 				deck.Shuffle();
 
-				//Update Coins
+				//Update Coins (and reset bet).
 				player.BetResult(isWinner);
 
 				// Display winnings.
@@ -175,7 +147,8 @@ namespace _03_DECK_OF_CARDS
 				Console.WriteLine("Play again? y/n");
 				again = Console.ReadLine();
 			}
-			
+
+			// Display game end condition result.
 			if (player.coins > 0 )
 			{
 				Console.WriteLine($"Player ended the game with {player.coins} coins.");
