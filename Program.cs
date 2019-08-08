@@ -76,7 +76,6 @@ namespace _03_DECK_OF_CARDS
 					}
 					// Change Ace value to 1 if necessary.
 					player.CheckAce();
-
 				}
 
 				// Dealer draws.
@@ -84,6 +83,7 @@ namespace _03_DECK_OF_CARDS
 				{
 					Console.WriteLine($"Dealer draws card #{dealer.getCardCount}.");
 					dealer.Draw(deck);
+					// Change Ace value to 1 if necessary.
 					dealer.CheckAce();
 				}
 
